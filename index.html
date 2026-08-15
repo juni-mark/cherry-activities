@@ -97,9 +97,111 @@ footer{position:relative;z-index:1;text-align:center;padding:40px 20px 60px;bord
   .modal-img-wrap{max-height:260px;}
   .modal-img-wrap img{max-height:260px;}
 }
+
+/* ── CONTACT STRIP ── */
+.contact-strip {
+  position:relative; z-index:1;
+  background:linear-gradient(135deg,var(--deep-rose) 0%,var(--mauve) 100%);
+  padding:18px 30px;
+  display:flex; justify-content:center; align-items:center;
+  flex-wrap:wrap; gap:24px;
+}
+.contact-item {
+  display:flex; align-items:center; gap:8px;
+  font-size:.82rem; color:white; font-weight:400; letter-spacing:.2px;
+}
+.contact-item svg { flex-shrink:0; opacity:.9; }
+.contact-item a { color:white; text-decoration:none; }
+.contact-item a:hover { text-decoration:underline; opacity:.85; }
+.contact-dot {
+  width:4px; height:4px; border-radius:50%;
+  background:rgba(255,255,255,.4);
+}
+
+/* ── ABOUT GRID (Education / Skills / Languages) ── */
+.about-section {
+  position:relative; z-index:1;
+  max-width:1140px; margin:0 auto 60px; padding:0 30px;
+}
+.about-grid {
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+  gap:22px;
+}
+@media(max-width:800px) {
+  .about-grid { grid-template-columns:1fr; }
+}
+.about-card {
+  background:white; border-radius:18px;
+  border:1.5px solid rgba(249,198,208,.6);
+  box-shadow:0 4px 20px rgba(194,77,106,.06);
+  padding:24px 24px 22px;
+  opacity:0; animation:fadeUp .5s ease forwards;
+}
+.about-card-header {
+  display:flex; align-items:center; gap:12px;
+  margin-bottom:18px; padding-bottom:14px;
+  border-bottom:1.5px solid var(--blush);
+}
+.about-icon {
+  width:38px; height:38px; border-radius:11px;
+  display:flex; align-items:center; justify-content:center;
+  font-size:1.1rem; flex-shrink:0;
+}
+.ai-edu  { background:linear-gradient(135deg,#c24d6a,#e8798a); }
+.ai-skill{ background:linear-gradient(135deg,#b56278,#d48fa0); }
+.ai-lang { background:linear-gradient(135deg,#d4749a,#eaabbc); }
+.about-card-header h3 {
+  font-family:'Playfair Display',serif;
+  font-size:1.05rem; font-weight:700; color:var(--deep-rose);
+}
+
+/* Education */
+.edu-uni { font-size:.82rem; font-weight:600; color:var(--text-dark); margin-bottom:3px; }
+.edu-degree { font-size:.78rem; color:var(--text-mid); line-height:1.5; margin-bottom:10px; font-weight:300; }
+.edu-meta { display:flex; flex-direction:column; gap:4px; }
+.edu-tag {
+  display:inline-flex; align-items:center; gap:6px;
+  font-size:.76rem; color:var(--text-mid); font-weight:400;
+}
+.edu-tag::before { content:'·'; color:var(--rose); font-weight:700; }
+.edu-gpa {
+  display:inline-block; margin-top:8px;
+  background:var(--petal); border:1px solid var(--blush);
+  color:var(--deep-rose); font-weight:700; font-size:.82rem;
+  padding:4px 12px; border-radius:20px;
+}
+
+/* Skills */
+.skill-group-label {
+  font-size:.7rem; font-weight:600; color:var(--text-light);
+  text-transform:uppercase; letter-spacing:1.2px;
+  margin-bottom:8px; margin-top:4px;
+}
+.skill-tags { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:14px; }
+.skill-tag {
+  font-size:.74rem; font-weight:500; color:var(--deep-rose);
+  background:var(--petal); border:1px solid var(--blush);
+  padding:4px 11px; border-radius:16px;
+}
+.skill-tag.tech { background:white; border-color:rgba(194,77,106,.25); color:var(--text-mid); }
+
+/* Languages */
+.lang-item { margin-bottom:14px; }
+.lang-name { font-size:.84rem; font-weight:600; color:var(--text-dark); margin-bottom:4px; }
+.lang-level { font-size:.74rem; color:var(--text-light); margin-bottom:6px; }
+.lang-bar-bg {
+  height:6px; background:var(--blush); border-radius:10px; overflow:hidden;
+}
+.lang-bar-fill {
+  height:100%; border-radius:10px;
+  background:linear-gradient(90deg,var(--deep-rose),var(--rose));
+}
+
 </style>
 </head>
 <body>
+
 
 <section class="hero">
   <div class="hero-deco"></div>
@@ -124,6 +226,70 @@ footer{position:relative;z-index:1;text-align:center;padding:40px 20px 60px;bord
     <div class="stat-item"><h3>3</h3><p>Years of Growth</p></div>
   </div>
 </div>
+
+
+<!-- EDUCATION / SKILLS / LANGUAGES -->
+<section class="about-section">
+  <div class="about-grid">
+
+    <!-- EDUCATION -->
+    <div class="about-card" style="animation-delay:.05s">
+      <div class="about-card-header">
+        <div class="about-icon ai-edu">🎓</div>
+        <h3>Education</h3>
+      </div>
+      <div class="edu-uni">University of the Thai Chamber of Commerce (UTCC)</div>
+      <div class="edu-degree">Bachelor of Business Administration<br>International Business Management</div>
+      <div class="edu-meta">
+        <span class="edu-tag">2023 – 2027</span>
+        <span class="edu-tag">Relevant Coursework: Marketing, International Business Management, Organizational Behavior, Strategic Management</span>
+      </div>
+      <span class="edu-gpa">GPA 3.91</span>
+    </div>
+
+    <!-- SKILLS -->
+    <div class="about-card" style="animation-delay:.10s">
+      <div class="about-card-header">
+        <div class="about-icon ai-skill">⚡</div>
+        <h3>Skills</h3>
+      </div>
+      <div class="skill-group-label">Core Skills</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Collaboration &amp; Teamwork</span>
+        <span class="skill-tag">Problem-Solving</span>
+        <span class="skill-tag">Event Planning &amp; Logistics</span>
+        <span class="skill-tag">Public Speaking</span>
+        <span class="skill-tag">Sales &amp; Negotiation</span>
+      </div>
+      <div class="skill-group-label">Technical Skills</div>
+      <div class="skill-tags">
+        <span class="skill-tag tech">Canva</span>
+        <span class="skill-tag tech">Microsoft Office Suite</span>
+        <span class="skill-tag tech">Excel · PowerPoint · Word</span>
+        <span class="skill-tag tech">Video Editing (CapCut / TikTok)</span>
+      </div>
+    </div>
+
+    <!-- LANGUAGES -->
+    <div class="about-card" style="animation-delay:.15s">
+      <div class="about-card-header">
+        <div class="about-icon ai-lang">🌐</div>
+        <h3>Languages</h3>
+      </div>
+      <div class="lang-item">
+        <div class="lang-name">English</div>
+        <div class="lang-level">CEFR C1 — Advanced</div>
+        <div class="lang-bar-bg"><div class="lang-bar-fill" style="width:88%"></div></div>
+      </div>
+      <div class="lang-item">
+        <div class="lang-name">Burmese</div>
+        <div class="lang-level">Native</div>
+        <div class="lang-bar-bg"><div class="lang-bar-fill" style="width:100%"></div></div>
+      </div>
+    </div>
+
+  </div>
+</section>
 
 <!-- ── GROUP 1: WORK ── -->
 <section class="section-group">
@@ -485,6 +651,29 @@ footer{position:relative;z-index:1;text-align:center;padding:40px 20px 60px;bord
       <p class="modal-desc" id="mDesc"></p>
       <div class="modal-hl" id="mHl" style="display:none"></div>
     </div>
+  </div>
+</div>
+
+<!-- CONTACT STRIP -->
+<div class="contact-strip">
+  <div class="contact-item">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+    Din Daeng, Bangkok
+  </div>
+  <div class="contact-dot"></div>
+  <div class="contact-item">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.58 1.22h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6 6l1.12-.93a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21.73 16.92z"/></svg>
+    09-49204845
+  </div>
+  <div class="contact-dot"></div>
+  <div class="contact-item">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+    <a href="mailto:sumyatcherry23@gmail.com">sumyatcherry23@gmail.com</a>
+  </div>
+  <div class="contact-dot"></div>
+  <div class="contact-item">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+    <a href="https://linkedin.com/in/su-myat-cherry-0551b1277" target="_blank">Su Myat Cherry</a>
   </div>
 </div>
 
